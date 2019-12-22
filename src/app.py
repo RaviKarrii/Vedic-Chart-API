@@ -4,25 +4,24 @@ import codebase as cb
 
 
 def lambda_handler(event, context):
-    """Sample pure Lambda function
+    """
+    Body Will be 
 
-    Parameters
-    ----------
-    event: dict, required
-        API Gateway Lambda Proxy Input Format
-
-        Event doc: https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-input-format
-
-    context: object, required
-        Lambda Context runtime methods and attributes
-
-        Context doc: https://docs.aws.amazon.com/lambda/latest/dg/python-context-object.html
-
-    Returns
-    ------
-    API Gateway Lambda Proxy Output Format: dict
-
-        Return doc: https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html
+    [
+  {
+  "Male":
+  {
+    Year: '1993',
+    Month: '09',
+    Day: '16',
+    Hour: '17',
+    Min: '55',
+    Lat:'16.989',
+    Lon: '82.247'
+    
+  }
+}
+]
     """
 
     # try:

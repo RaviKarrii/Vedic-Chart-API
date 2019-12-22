@@ -67,3 +67,7 @@ def getTZ(Lat,Lon):
     tzwhere = tzwhere.tzwhere()
     timezone_str = tzwhere.tzNameAt(float(Lat), float(Lon)) # Seville coordinates
     return timezone_str
+
+    
+def process_return(planet_path_dictionary):
+    return ""

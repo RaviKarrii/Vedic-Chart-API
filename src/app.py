@@ -1,4 +1,5 @@
 import json
+import codebase as cb
 # import requests
 
 
@@ -35,7 +36,7 @@ def lambda_handler(event, context):
     return {
         "statusCode": 200,
         "body": json.dumps({
-            "message": "DpneS",
+            "message": str(cb.convert_angle(190)),
             # "location": ip.text.replace("\n", "")
         }),
     }

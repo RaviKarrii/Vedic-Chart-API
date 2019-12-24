@@ -101,5 +101,5 @@ def process(Json_payload):
     #print(decdeg2dms(ascDeg[0][0])[0])
     DeG = decdeg2dms(convert_angle(ascDeg[0][0])[0])
     print(convert_angle(ascDeg[0][0])[1]+" Ascendant:"+str(DeG[0])+"° "+str(DeG[1])+"′ "+str(DeG[2])+"″")
-    return out
+    return out["Moon"]
     

@@ -2,6 +2,7 @@ import swisseph as swe
 #from __future__ import division
 from math import floor, ceil
 from collections import namedtuple as struct
+from timezonefinder import TimezoneFinder
 import datetime
 import pytz
 from tzwhere import tzwhere
@@ -62,44 +63,46 @@ def decdeg2dms(deg):
     return [d, m, s]
 Date = struct('Date', ['year', 'month', 'day', 'hour','greg'])
 Place = struct('Location', ['latitude', 'longitude'])
-def getTZ(Lat,Lon):
+
+def getTZ_old(Lat,Lon):
     from tzwhere import tzwhere
     tzwhere = tzwhere.tzwhere()
     timezone_str = tzwhere.tzNameAt(float(Lat), float(Lon)) # Seville coordinates
     return timezone_str
 
+def getTZ(Lat,Lon):
+    tf = TimezoneFinder()
+    latitude, longitude = float(Lat), float(Lon)
+    return tf.timezone_at(lng=longitude, lat=latitude) # returns 'Europe/Berlin'
+
 out = {}
 Ascendant_output = {}
-    
+
 def process(Json_payload):
+    #return Json_payload
     Lat,Lon = Json_payload["Lat"],Json_payload["Lon"]
-    DY,DMon,DD,DH,DMin,DS = Json_payload["Year"],Json_payload["Month"],Json_payload["Day"],Json_payload["Hour"],Json_payload["Min"],0
+    DY,DMon,DD,DH,DMin,DS = Json_payload["Year"],Json_payload["Month"],Json_payload["Day"],Json_payload["Hour"],Json_payload["Min"],"00"
     naive = datetime.datetime.strptime (DY+"-"+DMon+"-"+DD+" "+DH+":"+DMin+":"+DS, "%Y-%m-%d %H:%M:%S")
-    local = pytz.timezone (getTZ(float(Lat),float(Lon)))
+    return getTZ(float(Lat),float(Lon))
+    local = pytz.timezone(getTZ(float(Lat),float(Lon)))
+    return local
     local_dt = local.localize(naive, is_dst=None)
     utc_dt = local_dt.astimezone(pytz.utc)
     utc_dt = utc_dt.strftime ("%Y:%m:%d:%H:%M:%S")
     DY,DMon,DD,DH,DMin,DS = utc_dt.split(":")
     kkd = Place(float(Lat),float(Lon))
     dtR = swe.utc_to_jd(int(DY),int(DMon),int(DD),int(DH),int(DMin),int(DS),1)
-    swe.set_ephe_path('Files')
+    swe.set_ephe_path('files')
     #swe.set_topo(12.9667, 77.5667, 0);
-    swe.set_sid_mode(swe.SIDM_LAHIRI, 0, 0);
-
+    swe.set_sid_mode(swe.SIDM_LAHIRI, 0, 0)
     for key in PLANETS:
     
         output = swe.calc_ut(dtR[0], PLANETS[key], flag = swe.FLG_SWIEPH | swe.FLG_SIDEREAL | swe.FLG_SPEED)
         ActualDegrees = decdeg2dms((output[0]))
-        #print(output)
-        print (key + " in " + convert_angle(ActualDegrees[0])[1])
-        print("ACTUAL     :"+str(ActualDegrees[0])+"°  "+str(ActualDegrees[1])+"′ "+str(ActualDegrees[2])+"″ ")
-        print("CALC       :"+str(convert_angle(ActualDegrees[0])[0])+"°  "+str(ActualDegrees[1])+"′ "+str(ActualDegrees[2])+"″ ")
-        out[key] = +str(convert_angle(ActualDegrees[0])[0])+"°  "+str(ActualDegrees[1])+"′ "+str(ActualDegrees[2])+"″ "
+        out[key] = str(convert_angle(ActualDegrees[0])[0])+" "+str(ActualDegrees[1])+" "+str(ActualDegrees[2])+" "
 
     ascDeg = swe.houses_ex(dtR[0], kkd[0], kkd[1], str.encode('A'), flag = swe.FLG_SWIEPH | swe.FLG_SIDEREAL | swe.FLG_SPEED)
-    #print(ascDeg)
-    #print(decdeg2dms(ascDeg[0][0])[0])
     DeG = decdeg2dms(convert_angle(ascDeg[0][0])[0])
-    print(convert_angle(ascDeg[0][0])[1]+" Ascendant:"+str(DeG[0])+"° "+str(DeG[1])+"′ "+str(DeG[2])+"″")
-    return out["Moon"]
+    return out
     
+

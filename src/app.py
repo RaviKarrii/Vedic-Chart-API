@@ -6,12 +6,13 @@ import codebase as cb
 def lambda_handler(event, context):
 
     input_payload = json.loads(event['body'])
-
+    
+    out = cb.process(input_payload)
+    out = str(out)
 
     return {
         "statusCode": 200,
         "body": json.dumps({            
-        "message": cb.process(input_payload),
-        # "location": ip.text.replace("\n", "")
+        "message": ""+out
         }),
     }

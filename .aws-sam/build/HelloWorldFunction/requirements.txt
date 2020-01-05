@@ -1,5 +1,0 @@
-requests
-pyswisseph==2.0.0.post2
-tzwhere
-datetime
-pytz

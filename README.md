@@ -117,3 +117,36 @@ aws cloudformation delete-stack --stack-name VIRGO
 See the [AWS SAM developer guide](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html) for an introduction to SAM specification, the SAM CLI, and serverless application concepts.
 
 Next, you can use AWS Serverless Application Repository to deploy ready to use Apps that go beyond hello world samples and learn how authors developed their applications: [AWS Serverless Application Repository main page](https://aws.amazon.com/serverless/serverlessrepo/)
+
+##Payload
+
+##Input
+
+  ```{
+  	"Year": "1993",
+  	"Month": "09",
+  	"Day": "16",
+  	"Hour": "17",
+  	"Min": "55",
+  	"Lat": "16.989",
+  	"Lon": "82.247"
+  }```
+
+##Output
+
+```
+{
+    "message": "
+    {
+      'Sun': '149 29 52 34 Leo', 
+      'Moon': '155 5 24 4 Virgo', 
+      'Mercury': '164 14 34 38 Virgo', 
+      'Venus': '120 0 3 14 Leo', 
+      'Mars': '179 29 9 2 Virgo', 
+      'Jupiter': '174 24 27 57 Virgo', 
+      'Saturn': '301 1 14 7 Aquarius', 
+      'Rahu': '222 12 57 44 Scorpio', 
+      'Ascendant': '328.9639886225226 28 57 50 Aquarius'}"
+}
+
+```

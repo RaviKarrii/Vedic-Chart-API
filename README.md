@@ -118,9 +118,9 @@ See the [AWS SAM developer guide](https://docs.aws.amazon.com/serverless-applica
 
 Next, you can use AWS Serverless Application Repository to deploy ready to use Apps that go beyond hello world samples and learn how authors developed their applications: [AWS Serverless Application Repository main page](https://aws.amazon.com/serverless/serverlessrepo/)
 
-##Payload
+## Payload
 
-##Input
+## Input
 
   ```{
   	"Year": "1993",
@@ -134,8 +134,7 @@ Next, you can use AWS Serverless Application Repository to deploy ready to use A
 
 ##Output
 
-```
-{
+```{
     "message": "
     {
       'Sun': '149 29 52 34 Leo', 
@@ -147,6 +146,4 @@ Next, you can use AWS Serverless Application Repository to deploy ready to use A
       'Saturn': '301 1 14 7 Aquarius', 
       'Rahu': '222 12 57 44 Scorpio', 
       'Ascendant': '328.9639886225226 28 57 50 Aquarius'}"
-}
-
-```
+}```

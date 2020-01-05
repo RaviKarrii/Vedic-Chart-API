@@ -122,7 +122,8 @@ Next, you can use AWS Serverless Application Repository to deploy ready to use A
 
 ## Input
 
-  ```{
+  ```
+  {
   	"Year": "1993",
   	"Month": "09",
   	"Day": "16",
@@ -135,7 +136,8 @@ Next, you can use AWS Serverless Application Repository to deploy ready to use A
 
 ## Output
 
-```{
+```
+{
     "message": "
     {
       'Sun': '149 29 52 34 Leo', 

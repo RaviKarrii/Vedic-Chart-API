@@ -5,7 +5,7 @@ from collections import namedtuple as struct
 from timezonefinder import TimezoneFinder
 import datetime
 import pytz
-from tzwhere import tzwhere
+import json
 
 PLANETS = {
     "Sun": swe.SUN,
@@ -100,10 +100,11 @@ def process(Json_payload):
     
         output = swe.calc_ut(dtR[0], PLANETS[key], flag = swe.FLG_SWIEPH | swe.FLG_SIDEREAL | swe.FLG_SPEED)
         ActualDegrees = decdeg2dms((output[0]))
-        out[key] = str(convert_angle(ActualDegrees[0])[0])+" "+str(ActualDegrees[1])+" "+str(ActualDegrees[2])+" "
+        out[key] = str(ActualDegrees[0]) + " " + str(convert_angle(ActualDegrees[0])[0])+" "+str(ActualDegrees[1])+" "+str(ActualDegrees[2])+" " + str(convert_angle(ActualDegrees[0])[1])
 
     ascDeg = swe.houses_ex(dtR[0], kkd[0], kkd[1], str.encode('A'), flag = swe.FLG_SWIEPH | swe.FLG_SIDEREAL | swe.FLG_SPEED)
     DeG = decdeg2dms(convert_angle(ascDeg[0][0])[0])
+    out["Ascendant"] = str(ascDeg[0][0]) + " " +str(DeG[0])+ " " + str(DeG[1]) + " " + str(DeG[2]) + " " + str(convert_angle(ascDeg[0][0])[1])
     return out
     
 

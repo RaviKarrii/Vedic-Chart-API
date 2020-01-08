@@ -138,16 +138,6 @@ Next, you can use AWS Serverless Application Repository to deploy ready to use A
 
 ```
 {
-    "message": "
-    {
-      'Sun': '149 29 52 34 Leo', 
-      'Moon': '155 5 24 4 Virgo', 
-      'Mercury': '164 14 34 38 Virgo', 
-      'Venus': '120 0 3 14 Leo', 
-      'Mars': '179 29 9 2 Virgo', 
-      'Jupiter': '174 24 27 57 Virgo', 
-      'Saturn': '301 1 14 7 Aquarius', 
-      'Rahu': '222 12 57 44 Scorpio', 
-      'Ascendant': '328.9639886225226 28 57 50 Aquarius'}"
+    "message": "\"{'Sun': '149 29 52 34 Leo', 'Moon': '155 5 24 4 Virgo', 'Mercury': '164 14 34 38 Virgo', 'Venus': '120 0 3 14 Leo', 'Mars': '179 29 9 2 Virgo', 'Jupiter': '174 24 27 57 Virgo', 'Saturn': '301 1 14 7 Aquarius', 'Rahu': '222 12 57 44 Scorpio', 'Ascendant': '328.9639886225226 28 57 50 Aquarius'}\""
 }
 ```

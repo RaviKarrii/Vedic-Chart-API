@@ -1,3 +1,7 @@
+# Build Status
+
+[![Build Status](https://travis-ci.com/RaviKarrii/Virgo-API.png)](https://travis-ci.com/RaviKarrii/Virgo-API)
+
 # VIRGO
 
 This project contains source code and supporting files for a serverless application that you can deploy with the SAM CLI. It includes the following files and folders.

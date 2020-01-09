@@ -106,7 +106,8 @@ def process(Json_payload):
         out_maker["ConvertedDegrees"] = str(convert_angle(ActualDegrees[0])[0])
         out_maker["ConvertedMin"] = str(ActualDegrees[1])
         out_maker["ConvertedSec"] = str(ActualDegrees[2])
-        out_maker["Zodiad"] = str(convert_angle(ActualDegrees[0])[1])
+        out_maker["Zodiac"] = str(convert_angle(ActualDegrees[0])[1])
+        out_maker = json.dumps(out_maker)
         out[key] =  out_maker
 
     ascDeg = swe.houses_ex(dtR[0], kkd[0], kkd[1], str.encode('A'), flag = swe.FLG_SWIEPH | swe.FLG_SIDEREAL | swe.FLG_SPEED)

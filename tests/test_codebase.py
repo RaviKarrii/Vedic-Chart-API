@@ -19,7 +19,7 @@ class test_codebase(unittest.TestCase):
         """
         out = cb.process(json.loads(Json_payload))
 
-        self.assertEqual(out['Sun'], '149 29 52 34 Leo')
+        self.assertEqual(out['Sun']['Zodiac'], 'Leo')
 
 if __name__ == '__main__':
     unittest.main()

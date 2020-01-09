@@ -101,19 +101,10 @@ You can find more information and examples about filtering Lambda function logs 
 
 ## Unit tests
 
-Tests are defined in the `tests` folder in this project. Use PIP to install the [pytest](https://docs.pytest.org/en/latest/) and run unit tests.
+Tests are defined in the `tests` folder in this project. Use PIP to install the [unittest](https://docs.pytest.org/en/latest/) and run unit tests.
 
 ```bash
-VIRGO$ pip install pytest pytest-mock --user
-VIRGO$ python -m pytest tests/ -v
-```
-
-## Cleanup
-
-To delete the sample application that you created, use the AWS CLI. Assuming you used your project name for the stack name, you can run the following:
-
-```bash
-aws cloudformation delete-stack --stack-name VIRGO
+VIRGO$ make test
 ```
 
 ## Resources
@@ -142,6 +133,6 @@ Next, you can use AWS Serverless Application Repository to deploy ready to use A
 
 ```
 {
-    "message": "\"{'Sun': '{\\\"ActualDegrees\\\": \\\"149\\\", \\\"ConvertedDegrees\\\": \\\"29\\\", \\\"ConvertedMin\\\": \\\"52\\\", \\\"ConvertedSec\\\": \\\"34\\\", \\\"Zodiac\\\": \\\"Leo\\\"}', 'Moon': '{\\\"ActualDegrees\\\": \\\"155\\\", \\\"ConvertedDegrees\\\": \\\"5\\\", \\\"ConvertedMin\\\": \\\"24\\\", \\\"ConvertedSec\\\": \\\"4\\\", \\\"Zodiac\\\": \\\"Virgo\\\"}', 'Mercury': '{\\\"ActualDegrees\\\": \\\"164\\\", \\\"ConvertedDegrees\\\": \\\"14\\\", \\\"ConvertedMin\\\": \\\"34\\\", \\\"ConvertedSec\\\": \\\"38\\\", \\\"Zodiac\\\": \\\"Virgo\\\"}', 'Venus': '{\\\"ActualDegrees\\\": \\\"120\\\", \\\"ConvertedDegrees\\\": \\\"0\\\", \\\"ConvertedMin\\\": \\\"3\\\", \\\"ConvertedSec\\\": \\\"14\\\", \\\"Zodiac\\\": \\\"Leo\\\"}', 'Mars': '{\\\"ActualDegrees\\\": \\\"179\\\", \\\"ConvertedDegrees\\\": \\\"29\\\", \\\"ConvertedMin\\\": \\\"9\\\", \\\"ConvertedSec\\\": \\\"2\\\", \\\"Zodiac\\\": \\\"Virgo\\\"}', 'Jupiter': '{\\\"ActualDegrees\\\": \\\"174\\\", \\\"ConvertedDegrees\\\": \\\"24\\\", \\\"ConvertedMin\\\": \\\"27\\\", \\\"ConvertedSec\\\": \\\"57\\\", \\\"Zodiac\\\": \\\"Virgo\\\"}', 'Saturn': '{\\\"ActualDegrees\\\": \\\"301\\\", \\\"ConvertedDegrees\\\": \\\"1\\\", \\\"ConvertedMin\\\": \\\"14\\\", \\\"ConvertedSec\\\": \\\"7\\\", \\\"Zodiac\\\": \\\"Aquarius\\\"}', 'Rahu': '{\\\"ActualDegrees\\\": \\\"222\\\", \\\"ConvertedDegrees\\\": \\\"12\\\", \\\"ConvertedMin\\\": \\\"57\\\", \\\"ConvertedSec\\\": \\\"44\\\", \\\"Zodiac\\\": \\\"Scorpio\\\"}', 'Ascendant': '328.9639886225226 28 57 50 Aquarius'}\""
+    "message": "\"{'Sun': {'ActualDegrees': '149', 'ConvertedDegrees': '29', 'ConvertedMin': '52', 'ConvertedSec': '34', 'Zodiac': 'Leo'}, 'Moon': {'ActualDegrees': '155', 'ConvertedDegrees': '5', 'ConvertedMin': '24', 'ConvertedSec': '4', 'Zodiac': 'Virgo'}, 'Mercury': {'ActualDegrees': '164', 'ConvertedDegrees': '14', 'ConvertedMin': '34', 'ConvertedSec': '38', 'Zodiac': 'Virgo'}, 'Venus': {'ActualDegrees': '120', 'ConvertedDegrees': '0', 'ConvertedMin': '3', 'ConvertedSec': '14', 'Zodiac': 'Leo'}, 'Mars': {'ActualDegrees': '179', 'ConvertedDegrees': '29', 'ConvertedMin': '9', 'ConvertedSec': '2', 'Zodiac': 'Virgo'}, 'Jupiter': {'ActualDegrees': '174', 'ConvertedDegrees': '24', 'ConvertedMin': '27', 'ConvertedSec': '57', 'Zodiac': 'Virgo'}, 'Saturn': {'ActualDegrees': '301', 'ConvertedDegrees': '1', 'ConvertedMin': '14', 'ConvertedSec': '7', 'Zodiac': 'Aquarius'}, 'Rahu': {'ActualDegrees': '222', 'ConvertedDegrees': '12', 'ConvertedMin': '57', 'ConvertedSec': '44', 'Zodiac': 'Scorpio'}, 'Ascendant': '328.9639886225226 28 57 50 Aquarius'}\""
 }
 ```

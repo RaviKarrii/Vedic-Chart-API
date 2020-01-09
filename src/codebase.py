@@ -77,6 +77,7 @@ def getTZ(Lat,Lon):
 
 out = {}
 Ascendant_output = {}
+out_maker = {}
 
 def process(Json_payload):
     #return Json_payload
@@ -100,7 +101,13 @@ def process(Json_payload):
     
         output = swe.calc_ut(dtR[0], PLANETS[key], flag = swe.FLG_SWIEPH | swe.FLG_SIDEREAL | swe.FLG_SPEED)
         ActualDegrees = decdeg2dms((output[0]))
-        out[key] = str(ActualDegrees[0]) + " " + str(convert_angle(ActualDegrees[0])[0])+" "+str(ActualDegrees[1])+" "+str(ActualDegrees[2])+" " + str(convert_angle(ActualDegrees[0])[1])
+        out_maker = {}
+        out_maker["ActualDegrees"] = str(ActualDegrees[0])
+        out_maker["ConvertedDegrees"] = str(convert_angle(ActualDegrees[0])[0])
+        out_maker["ConvertedMin"] = str(ActualDegrees[1])
+        out_maker["ConvertedSec"] = str(ActualDegrees[2])
+        out_maker["Zodiad"] = str(convert_angle(ActualDegrees[0])[1])
+        out[key] =  out_maker
 
     ascDeg = swe.houses_ex(dtR[0], kkd[0], kkd[1], str.encode('A'), flag = swe.FLG_SWIEPH | swe.FLG_SIDEREAL | swe.FLG_SPEED)
     DeG = decdeg2dms(convert_angle(ascDeg[0][0])[0])

@@ -1,6 +1,6 @@
 # Build Status
 
-[![Build Status](https://travis-ci.com/RaviKarrii/Virgo-API.png)](https://travis-ci.com/RaviKarrii/Vedic-Chart-API)
+[![Build Status](https://travis-ci.com/RaviKarrii/Vedic-Chart-API.png)](https://travis-ci.com/RaviKarrii/Vedic-Chart-API)
 
 # VIRGO
 
